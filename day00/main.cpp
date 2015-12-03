@@ -13,18 +13,13 @@
 #include <algorithm>
 #include <fstream>
 
+void myFunction(const std::string& fileName);
+
 /** \brief template */
 int main(int argc, char* argv[]) {
   if (argc == 2) {
     std::cout << "Hello Santa !" << std::endl;
-    ifstream sampleFile (argv[1]);
-    if (myfile.is_open()) {
-    
-    }
-    else {
-      std::cout << "Unable to open file : " << argv[1];
-      return EXIT_FAILURE;
-    }
+    myFunction(argv[1]);
   }
   else {
     std::cout << "Wrong number of args." << std::endl;
@@ -33,3 +28,13 @@ int main(int argc, char* argv[]) {
   return EXIT_SUCCESS;
 }
 
+void myFunction(const std::string& fileName) {
+   ifstream sampleFile (fileName);
+   if (myfile.is_open()) {
+     // do things
+   }
+   else {
+     std::cout << "Unable to open file : " << fileName;
+     return exit(EXIT_FAILURE);
+   }
+}
